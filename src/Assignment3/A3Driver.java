@@ -14,8 +14,7 @@ public class A3Driver
 		//Parse input, take appropriate actions.
 		
 		//Stub for arraylist.
-		ArrayList<Item> shoppingCart = new ArrayList<Item>(); 
-		System.out.println("This works!");
+		ArrayList<Item> shoppingCart = new ArrayList<Item>();
 		
 		// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
 		Iterator<Item> i = shoppingCart.iterator();

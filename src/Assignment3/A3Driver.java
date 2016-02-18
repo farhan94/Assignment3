@@ -1,4 +1,4 @@
-package Assignment3;
+package assignment3;
 
 import java.util.*;
 
@@ -15,6 +15,7 @@ public class A3Driver
 		
 		//Stub for arraylist.
 		ArrayList<Item> shoppingCart = new ArrayList<Item>(); 
+		System.out.println("This works!");
 		
 		// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
 		Iterator<Item> i = shoppingCart.iterator();

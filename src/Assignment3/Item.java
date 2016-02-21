@@ -22,9 +22,7 @@ public class Item
 	
 	float calculatePrice () 
 	{
-		float final_price = 0;
-		// Insert price calculation here
-		return final_price;
+		return ((float) (price*(1+salesTax) + shippingPrice));
 	}
 	
 

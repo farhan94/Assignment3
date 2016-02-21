@@ -16,9 +16,11 @@ public class Grocery extends Item {
 			this.perishable = classification.NONPERISH;
 		}
 	}
+	
 	//override calculatePrice() if necessary; Implement print methods as necessary	
 	// Only re-implement stuff you cannot get from the superclass (Item)
-	public void calculateShipping(){
+	public void calculateShipping()
+	{
 		if (this.perishable == classification.PERISH){
 			this.shippingPrice = this.weight*20*this.quantity*1.2;
 		}

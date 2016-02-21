@@ -1,4 +1,4 @@
-package assignment3;
+package Assignment3;
 
 public class Grocery extends Item {
 	//variables, constructor here
@@ -27,6 +27,13 @@ public class Grocery extends Item {
 		else{
 			this.shippingPrice = this.weight*20*this.quantity;
 		}
+	}
+	
+	public double calculatePrice() 
+	{
+		double final_price = 0;
+		final_price = this.price * this.quantity + this.shippingPrice;
+		return final_price;
 	}
 	
 }

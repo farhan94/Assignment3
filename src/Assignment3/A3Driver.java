@@ -1,4 +1,4 @@
-package assignment3;
+package Assignment3;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

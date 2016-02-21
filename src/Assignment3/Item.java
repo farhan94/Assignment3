@@ -1,4 +1,4 @@
-package assignment3;
+package Assignment3;
 
 public class Item 
 {
@@ -20,9 +20,79 @@ public class Item
 		this.weight = weight;
 	}
 	
-	float calculatePrice () 
+	
+	
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+
+	public double getPrice() {
+		return price;
+	}
+
+
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+
+
+
+	public int getWeight() {
+		return weight;
+	}
+
+
+
+	public void setWeight(int weight) {
+		this.weight = weight;
+	}
+
+
+
+	public double getShippingPrice() {
+		return shippingPrice;
+	}
+
+
+
+	public double getSalesTax() {
+		return salesTax;
+	}
+
+
+
+	public double getTotalPrice() {
+		return totalPrice;
+	}
+
+
+
+	public double calculatePrice () 
 	{
-		return ((float) (price*(1+salesTax) + shippingPrice));
+		double final_price = 0;
+		final_price = this.price * this.quantity + this.shippingPrice + this.price*this.salesTax;
+		return final_price;
 	}
 	
 

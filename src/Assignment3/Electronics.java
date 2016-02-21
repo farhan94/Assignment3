@@ -1,4 +1,4 @@
-package assignment3;
+package Assignment3;
 //Programmed by Thomas Leahy
 //Tpl335
 //EE 422C Spring 2016
@@ -6,7 +6,10 @@ package assignment3;
 
 import java.util.Arrays;
 
-import assignment3.Grocery.classification;
+import Assignment3.Grocery.classification;
+
+
+
 
 public class Electronics extends Item 
 {

@@ -1,5 +1,8 @@
 package Assignment3;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+
 public class Item 
 {
 //Declare variables for this class. Think about its type: public, protected or private?
@@ -12,7 +15,10 @@ public class Item
 	
 	double totalPrice; //including either premium or regular shipping and tax if applicable
 	
+
+	
 // You will need a constructor (Why?). Create it here.
+	
 	public Item(String name, double price, int quantity, int weight){
 		this.name = name;
 		this.price = price;
@@ -22,6 +28,21 @@ public class Item
 	
 	
 	
+	public Item(String name2, String pr, String qu, String we) {
+		double price = Double.parseDouble(pr);
+		int cast = (int) (price*100);
+		price = cast/100;
+		
+		int quantity = Integer.parseInt(qu);
+		double weight = Double.parseDouble(we);
+		this.name = name;
+		this.price = price;
+		this.quantity = quantity;
+		this.weight = (int) weight;
+	}
+
+
+
 	public String getName() {
 		return name;
 	}
@@ -107,6 +128,73 @@ public class Item
 	
 	public void calculatePremiumShipping(){ //use the technique in the assignment description to calculate the shipping price (variable)
 		this.shippingPrice = this.weight*20*this.quantity*1.2;
+	}
+
+	public static void search(String name, ArrayList<Item> shoppingCart)
+	{
+		Iterator<Item> i = shoppingCart.iterator();
+		while(i.hasNext())
+		{
+			Item a = i.next();
+			if(a.name.equals(name)){
+				System.out.println("There are " + a.quantity + " of " + a.name +" in the shopping cart.");
+			}
+			else{
+				System.err.println("This item does not exist in the shopping cart");
+			}
+			
+		}
+	}
+	
+	public static void delete(String name, ArrayList<Item> shoppingCart) {
+		
+		Iterator<Item> i = shoppingCart.iterator();
+		while(i.hasNext())
+		{
+			Item a = i.next();
+			if(a.name.equals(name)){
+				shoppingCart.remove(a);
+			}
+			else{
+				System.err.println("This item does not exist in the shopping cart");
+			}
+			
+		}
+		
+	}
+
+
+
+	public static boolean itemExists(String name, ArrayList<Item> shoppingCart) {
+		Iterator<Item> i = shoppingCart.iterator();
+		while(i.hasNext())
+		{
+			Item a = i.next();
+			if(a.name.equals(name)){
+				return true;
+			}
+		}
+		return false;
+	}
+
+
+
+	public static void update(String name, String quant, ArrayList<Item> shoppingCart) {
+		int quantity = Integer.parseInt(quant);
+		Iterator<Item> i = shoppingCart.iterator();
+		while(i.hasNext())
+		{
+			Item a = i.next();
+			if(a.name.equals(name)){
+				int ind = shoppingCart.indexOf(a);
+				a = shoppingCart.get(ind);
+				a.setQuantity(quantity);
+				shoppingCart.set(ind, a);
+				System.out.println(a.name + ": " +a.quantity);
+				return;
+			}
+		
+		}
 	}
 
 }

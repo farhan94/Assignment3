@@ -39,28 +39,23 @@ public class A3Driver
 			
 			//maybe check for errors in the split string, instead of before splitting????
 			
-			if (splitString[1].toLowerCase().equals("grocery"))
+			if (splitString[0].toLowerCase().equals("insert"))
 			{
-				Grocery.evaluateInput(splitString, shoppingCart);
+				Item.evaluateInput(splitString, shoppingCart);
 			}
-			else if (splitString[0].toLowerCase().equals("search")){
+			else if (splitString[0].toLowerCase().equals("search"))
+			{
 				Item.search(splitString[1], shoppingCart);
 			}
-			else if (splitString[0].toLowerCase().equals("delete")){
+			else if (splitString[0].toLowerCase().equals("delete"))
+			{
 				Item.delete(splitString[1], shoppingCart);
 			}
-			else if (splitString[0].toLowerCase().equals("update")){
+			else if (splitString[0].toLowerCase().equals("update"))
+			{
 				Item.update(splitString[1], splitString[2], shoppingCart);
 			}
-			else if (splitString[1].toLowerCase().equals("electronics"))
-			{
-				Electronics.evaluateInput(splitString, shoppingCart);
-			}
 			
-			else if (splitString[1].toLowerCase().equals("clothing"))
-			{
-				Clothing.evaluateInput(splitString, shoppingCart);
-			}
 		}
 		
 		//Stub for arraylist.

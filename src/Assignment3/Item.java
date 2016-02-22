@@ -137,7 +137,7 @@ public class Item
 		{
 			Item a = i.next();
 			if(a.name.equals(name)){
-				System.out.println("There are " + a.quantity + " of " + a.name +" in the shopping cart.");
+				System.out.println("There is a quantity of " + a.quantity + " " + a.name +" in the shopping cart.");
 			}
 			else{
 				System.err.println("This item does not exist in the shopping cart");
@@ -197,6 +197,21 @@ public class Item
 			}
 		
 		}
+	}
+	
+	public static void evaluateInput(String[] s, ArrayList<Item> shoppingCart){
+		if (s[1].toLowerCase().equals("grocery"))
+		{
+			if (Item.itemExists(s[2], shoppingCart)){
+				System.err.println("Item " +s[2]+ " already exists in shopping cart.");
+			}
+			else
+			{
+				shoppingCart.add(new Grocery(s[2], s[3], s[4], s[5], s[6]));
+				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
+			}
+		}
+		
 	}
 
 }

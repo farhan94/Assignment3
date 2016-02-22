@@ -9,35 +9,7 @@ public class Grocery extends Item {
 	enum classification {PERISH, NONPERISH};
 	private classification perishable;
 	
-	public static void evaluateInput(String[] s, ArrayList<Item> shoppingCart){
-		if (s[0].toLowerCase().equals("insert"))
-		{
-			if (Item.itemExists(s[2], shoppingCart)){
-				System.err.println("Item " +s[2]+ " already exists in shopping cart.");
-			}
-			else
-			{
-				shoppingCart.add(new Grocery(s[2], s[3], s[4], s[5], s[6]));
-		
-			}
-		}
-		
-		else if (s[0].toLowerCase().equals("search"))
-		{
-			Item.search(s[1], shoppingCart);
-		}
-		
-		else if (s[0].toLowerCase().equals("delete"))
-		{
-			Item.delete(s[1], shoppingCart);
-		}
-		
-		else if (s[0].toLowerCase().equals("update"))
-		{
-			Item.update(s[1], s[2], shoppingCart);
-		}
-		
-	}
+
 	
 	
 	public Grocery(String name, double price, int quantity, int weight, String Pnp) {

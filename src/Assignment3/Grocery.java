@@ -1,7 +1,6 @@
 package Assignment3;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class Grocery extends Item {
 	//variables, constructor here

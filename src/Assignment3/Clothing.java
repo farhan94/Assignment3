@@ -1,5 +1,7 @@
 package Assignment3;
 
+import java.util.ArrayList;
+
 public class Clothing extends Item 
 {
 
@@ -21,6 +23,11 @@ public class Clothing extends Item
 	void printItemAttributes () 
 	{
 		//Print all applicable attributes of this sub-class
+	}
+
+	public static void evaluateInput(String[] splitString, ArrayList<Item> shoppingCart) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

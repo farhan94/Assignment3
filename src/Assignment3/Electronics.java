@@ -4,6 +4,7 @@ package Assignment3;
 //EE 422C Spring 2016
 //Thursday 2:00-3:30
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 import Assignment3.Grocery.classification;
@@ -34,6 +35,11 @@ public class Electronics extends Item
 		}
 		
 		
+		
+	}
+
+	public static void evaluateInput(String[] splitString, ArrayList<Item> shoppingCart) {
+		// TODO Auto-generated method stub
 		
 	}
 	

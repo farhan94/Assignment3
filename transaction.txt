@@ -1,0 +1,5 @@
+insert grocery apple 5 3 7 p
+search apple
+update apple 1
+search apple
+delete apple

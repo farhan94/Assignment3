@@ -43,7 +43,15 @@ public class A3Driver
 			{
 				Grocery.evaluateInput(splitString, shoppingCart);
 			}
-		
+			else if (splitString[0].toLowerCase().equals("search")){
+				Item.search(splitString[1], shoppingCart);
+			}
+			else if (splitString[0].toLowerCase().equals("delete")){
+				Item.delete(splitString[1], shoppingCart);
+			}
+			else if (splitString[0].toLowerCase().equals("update")){
+				Item.update(splitString[1], splitString[2], shoppingCart);
+			}
 			else if (splitString[1].toLowerCase().equals("electronics"))
 			{
 				Electronics.evaluateInput(splitString, shoppingCart);

@@ -35,7 +35,7 @@ public class Item
 		
 		int quantity = Integer.parseInt(qu);
 		double weight = Double.parseDouble(we);
-		this.name = name;
+		this.name = name2;
 		this.price = price;
 		this.quantity = quantity;
 		this.weight = (int) weight;
@@ -154,6 +154,8 @@ public class Item
 			Item a = i.next();
 			if(a.name.equals(name)){
 				shoppingCart.remove(a);
+				System.out.println(a.quantity+ " " + a.name + "s were deleted from the shopping cart.");
+				return;
 			}
 			else{
 				System.err.println("This item does not exist in the shopping cart");

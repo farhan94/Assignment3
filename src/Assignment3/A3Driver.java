@@ -150,19 +150,38 @@ public class A3Driver
 		  }
 		  else if (splitString[0].toLowerCase().equals("search"))
 		  {
-			  
+			  if(splitString.length < 2 || splitString.length > 2) //i am guessing that more than standard amount of inputs is wrong
+			  {
+				  return true;
+			  }
+			  return false;
 		  }
 		  else if (splitString[0].toLowerCase().equals("delete"))
 		  {
+			  if(splitString.length < 2 || splitString.length > 2) //i am guessing that more than standard amount of inputs is wrong
+			  {
+				  return true;
+			  }
 			  return false;
 		  }
 		  else if (splitString[0].toLowerCase().equals("update"))
 		  {
-			  
+			  if(splitString.length < 3 || splitString.length > 3) //i am guessing that more than standard amount of inputs is wrong
+			  {
+				  return true;
+			  }
+			  if((splitString[2].matches("\\d*")))
+			  {
+				  return false;
+			  }
 		  }
 		  else if (splitString[0].toLowerCase().equals("print"))
 		  {
-				return false;
+			  if(splitString.length < 1 || splitString.length > 1) //i am guessing that more than standard amount of inputs is wrong
+			  {
+				  return true;
+			  }
+			  return false;
 		  }
 		  return true; //false if no errors
 	  }

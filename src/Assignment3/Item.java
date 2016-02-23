@@ -165,39 +165,21 @@ public class Item
 	}
 	
 	public static void evaluateInput(String[] s, ArrayList<Item> shoppingCart){
-		if (s[1].toLowerCase().equals("grocery"))
+		if (s[1].toLowerCase().equals("groceries"))
 		{
-			if (Item.itemExists(s[2], shoppingCart)){
-				System.err.println("Item " +s[2]+ " already exists in shopping cart.");
-			}
-			else
-			{
 				shoppingCart.add(new Grocery(s[2], s[3], s[4], s[5], s[6]));
 				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
-			}
 		}
 		else if (s[1].toLowerCase().equals("electronics"))
 		{
-			if (Item.itemExists(s[2], shoppingCart)){
-				System.err.println("Item " +s[2]+ " already exists in shopping cart.");
-			}
-			else
-			{
 				shoppingCart.add(new Electronics(s[2], s[3], s[4], s[5], s[6], s[7]));
 				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
-			}
 		}
 		
 		else if (s[1].toLowerCase().equals("clothing"))
 		{
-			if (Item.itemExists(s[2], shoppingCart)){
-				System.err.println("Item " +s[2]+ " already exists in shopping cart.");
-			}
-			else
-			{
 				shoppingCart.add(new Clothing(s[2], s[3], s[4], s[5]));
 				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
-			}
 		}
 		
 	}

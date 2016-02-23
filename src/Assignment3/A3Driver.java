@@ -9,6 +9,7 @@ import java.util.*;
 
 public class A3Driver 
 {
+	public static String[] states = {"AL", "AK", "AS", "AZ", "AR", "CA", "CO", "CT", "DE", "DC", "FM", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MH", "MD", "MA", "MI", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VI", "VA", "WA", "WV", "WI", "WY", "AE", "AA", "AP"};
 	  public static void main(String[] args) 
 	  {
 		//Open file; file name specified in args (command line)
@@ -32,7 +33,8 @@ public class A3Driver
 			//maybe check for errors in the split string, instead of before splitting????
 			if (checkErrors(splitString))
 			{
-				continue; //checkErrors will print whatever error there was in the input, so all we need to do is end the program
+				System.err.println("Invalid Input");
+				continue; //checkErrors will print whatever error there was in the input
 			}
 			
 			if (splitString[0].toLowerCase().equals("insert"))
@@ -50,7 +52,8 @@ public class A3Driver
 			else if (splitString[0].toLowerCase().equals("update"))
 			{
 				Item.update(splitString[1], splitString[2], shoppingCart);
-			} else if (splitString[0].toLowerCase().equals("print"))
+			} 
+			else if (splitString[0].toLowerCase().equals("print"))
 			{
 				Item.print(shoppingCart);
 			}
@@ -92,7 +95,58 @@ public class A3Driver
 		  }
 		  if (splitString[0].toLowerCase().equals("insert"))
 		  {
-			  
+			  if(splitString[1].toLowerCase().equals("groceries")){
+				  if(splitString.length < 7 || splitString.length > 7) //i am guessing that more than standard amount of inputs is wrong
+				  {
+					  return true;
+				  }
+				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
+					  if((splitString[4].matches("\\d*")))
+					  {
+						  if((splitString[5].matches("\\d*")))
+						  {
+							  if(splitString[6].toLowerCase().equals("np") || splitString[6].toLowerCase().equals("p")){
+								  return false;
+							  }
+						  }
+					  }
+				  }
+			  }
+			  else if(splitString[1].toLowerCase().equals("electronics")){
+				  if(splitString.length < 8 || splitString.length > 8) //i am guessing that more than standard amount of inputs is wrong
+				  {
+					  return true;
+				  }
+				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
+					  if((splitString[4].matches("\\d*")))
+					  {
+						  if((splitString[5].matches("\\d*")))
+						  {
+							  if(splitString[6].toLowerCase().equals("f") || splitString[6].toLowerCase().equals("nf")){
+								  if(Arrays.asList(states).contains(splitString[7])){
+									  return false;
+								  }
+							  }
+						  }
+					  }
+				  }
+				  
+			  }
+			  else if(splitString[1].toLowerCase().equals("clothing")){
+				  if(splitString.length < 6 || splitString.length > 6) //i am guessing that more than standard amount of inputs is wrong
+				  {
+					  return true;
+				  }
+				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
+					  if((splitString[4].matches("\\d*")))
+					  {
+						  if((splitString[5].matches("\\d*")))
+						  {
+							  return false;
+						  }
+					  }
+				  }
+			  }
 		  }
 		  else if (splitString[0].toLowerCase().equals("search"))
 		  {
@@ -108,9 +162,9 @@ public class A3Driver
 		  }
 		  else if (splitString[0].toLowerCase().equals("print"))
 		  {
-				
+				return false;
 		  }
-		  return false; //false if no errors
+		  return true; //false if no errors
 	  }
 }
 	  

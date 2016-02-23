@@ -138,12 +138,10 @@ public class Item
 			Item a = i.next();
 			if(a.name.equals(name)){
 				System.out.println("There is a quantity of " + a.quantity + " " + a.name +" in the shopping cart.");
+				return;
 			}
-			else{
-				System.err.println("This item does not exist in the shopping cart");
-			}
-			
 		}
+		System.err.println("This item does not exist in the shopping cart");
 	}
 	
 	public static void delete(String name, ArrayList<Item> shoppingCart) {
@@ -157,11 +155,9 @@ public class Item
 				System.out.println(a.quantity+ " " + a.name + "s were deleted from the shopping cart.");
 				return;
 			}
-			else{
-				System.err.println("This item does not exist in the shopping cart");
-			}
-			
+		
 		}
+		System.err.println("This item does not exist in the shopping cart");
 		
 	}
 
@@ -208,6 +204,29 @@ public class Item
 			else
 			{
 				shoppingCart.add(new Grocery(s[2], s[3], s[4], s[5], s[6]));
+				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
+			}
+		}
+		else if (s[1].toLowerCase().equals("electronics"))
+		{
+			if (Item.itemExists(s[2], shoppingCart)){
+				System.err.println("Item " +s[2]+ " already exists in shopping cart.");
+			}
+			else
+			{
+				shoppingCart.add(new Electronics(s[2], s[3], s[4], s[5], s[6], s[7]));
+				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
+			}
+		}
+		
+		else if (s[1].toLowerCase().equals("clothing"))
+		{
+			if (Item.itemExists(s[2], shoppingCart)){
+				System.err.println("Item " +s[2]+ " already exists in shopping cart.");
+			}
+			else
+			{
+				shoppingCart.add(new Clothing(s[2], s[3], s[4], s[5]));
 				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
 			}
 		}

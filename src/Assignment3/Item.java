@@ -233,4 +233,9 @@ public class Item
 		
 	}
 
+	public static void print(ArrayList<Item> shoppingCart) //you may need to modify/add inputs
+	{ 
+		//this method will print the items in the shopping cart in alphabetical order
+	}
+
 }

@@ -22,13 +22,6 @@ public class A3Driver
 		ArrayList<String> input = new ArrayList<String>();
 		processLinesInFile (args[0], input);
 		
-		//Parse input, take appropriate actions.
-		
-		if (checkErrors(input))
-		{
-			return; //checkErrors will print whatever error there was in the input, so all we need to do is end the program
-		}
-		
 		Iterator<String> s = input.iterator();
 		ArrayList<Item> shoppingCart = new ArrayList<Item>();
 		
@@ -37,6 +30,10 @@ public class A3Driver
 			String[] splitString = temp.split(" ");
 			
 			//maybe check for errors in the split string, instead of before splitting????
+			if (checkErrors(splitString))
+			{
+				continue; //checkErrors will print whatever error there was in the input, so all we need to do is end the program
+			}
 			
 			if (splitString[0].toLowerCase().equals("insert"))
 			{
@@ -87,8 +84,32 @@ public class A3Driver
 			}
 		}
 	  
-	  public static boolean checkErrors(ArrayList<String> input){
-		  //will add various error checks here
+	  public static boolean checkErrors(String[] splitString)
+	  {
+		  if(splitString.length < 1)
+		  {
+			  return true;
+		  }
+		  if (splitString[0].toLowerCase().equals("insert"))
+		  {
+			  
+		  }
+		  else if (splitString[0].toLowerCase().equals("search"))
+		  {
+			  
+		  }
+		  else if (splitString[0].toLowerCase().equals("delete"))
+		  {
+			  
+		  }
+		  else if (splitString[0].toLowerCase().equals("update"))
+		  {
+			  
+		  }
+		  else if (splitString[0].toLowerCase().equals("print"))
+		  {
+				
+		  }
 		  return false; //false if no errors
 	  }
 }

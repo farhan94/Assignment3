@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 public class Grocery extends Item {
 	//variables, constructor here
-	private static double salesTax = 0;
 	
 	enum classification {PERISH, NONPERISH};
 	private classification perishable;
@@ -19,6 +18,8 @@ public class Grocery extends Item {
 			this.perishable = classification.NONPERISH;
 			this.calculateRegularShipping();
 		}
+		this.salesTax = 0;
+		this.calculateTotalPrice();
 	}
 	
 	public Grocery(String name, String pr, String qu, String we, String Pnp) {
@@ -31,27 +32,21 @@ public class Grocery extends Item {
 			this.perishable = classification.NONPERISH;
 			this.calculateRegularShipping();
 		}
+		this.salesTax = 0;
+		this.calculateTotalPrice();
 	}
 
-	/*
-	 * //override calculatePrice() if necessary; Implement print methods as necessary	
-	// Only re-implement stuff you cannot get from the superclass (Item)
-	public void calculateShipping()
+	public void calculatePrice() 
 	{
-		if (this.perishable == classification.PERISH){
-			this.shippingPrice = this.weight*20*this.quantity*1.2;
+		if (this.perishable.equals(classification.PERISH))
+		{
+			this.calculatePremiumShipping();
+		}else if(this.perishable.equals(classification.NONPERISH))
+		{
+			this.calculateRegularShipping();
 		}
-		else{
-			this.shippingPrice = this.weight*20*this.quantity;
-		}
-	}
-	*/
-	
-	public double calculatePrice() 
-	{
-		double finalPrice = 0;
-		finalPrice = this.price * this.quantity + this.shippingPrice;
-		return finalPrice;
+		this.salesTax = 0;
+		this.calculateTotalPrice();
 	}
 	
 }

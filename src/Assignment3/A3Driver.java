@@ -8,8 +8,7 @@ import java.util.*;
 
 
 public class A3Driver 
-	{
-
+{
 	  public static void main(String[] args) 
 	  {
 		//Open file; file name specified in args (command line)

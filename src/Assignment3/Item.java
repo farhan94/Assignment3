@@ -11,7 +11,7 @@ public class Item
 	String name;
 	double price;
 	double shippingPrice;
-	protected double salesTax = 0.1;
+	double salesTax;
 	protected int quantity;
 	int weight;
 	double totalPrice; //including either premium or regular shipping and tax if applicable
@@ -80,22 +80,11 @@ public class Item
 		return totalPrice;
 	}
 
-	public double calculatePrice () 
+	public void calculateTotalPrice () 
 	{
-		double final_price = 0;
-		final_price = this.price * this.quantity + this.shippingPrice + this.price*this.salesTax;
-		return final_price;
+		totalPrice = price + shippingPrice + salesTax;
 	}
-	
-	void printItemAttributes () 
-	{
-		//Print all applicable attributes of this class
-		System.out.println("Item name: " + getName());
-		System.out.println("Item quatitiy: " + getQuantity());
-		System.out.println("Item weight: " + getWeight());
-		System.out.println("Item price: " + getPrice());
-		System.out.println("Shipping Price: " + getShippingPrice());
-	}
+
 	
 	public void calculateRegularShipping(){ //use the technique in the assignment description to calculate the shipping price (variable)
 		this.shippingPrice = this.weight*20*this.quantity;
@@ -105,6 +94,10 @@ public class Item
 		this.shippingPrice = this.weight*20*this.quantity*1.2;
 	}
 
+	public void calculateSalesTax(){
+		
+	}
+	
 	public static void search(String name, ArrayList<Item> shoppingCart)
 	{
 		Iterator<Item> i = shoppingCart.iterator();
@@ -148,6 +141,10 @@ public class Item
 		return false;
 	}
 
+	public void calculatePrice(){
+		//Polymorphic Function will call calculate Price of the three class functions
+	}
+
 	public static void update(String name, String quant, ArrayList<Item> shoppingCart) {
 		int quantity = Integer.parseInt(quant);
 		Iterator<Item> i = shoppingCart.iterator();
@@ -158,6 +155,7 @@ public class Item
 				int ind = shoppingCart.indexOf(a);
 				a = shoppingCart.get(ind);
 				a.setQuantity(quantity);
+				a.calculatePrice();
 				shoppingCart.set(ind, a);
 				System.out.println(a.name + ": " +a.quantity);
 				return;
@@ -204,6 +202,16 @@ public class Item
 		
 	}
 
+	void printItemAttributes () 
+	{
+		//Print all applicable attributes of this class
+		System.out.println("Item name: " + getName());
+		System.out.println("Item quatitiy: " + getQuantity());
+		double pricePlusTax = getPrice() + getSalesTax();
+		System.out.println("Item price after tax: $" + pricePlusTax);
+		System.out.println("Shipping Price: $" + getShippingPrice());
+	}
+	
 	public static void print(ArrayList<Item> shoppingCart) //you may need to modify/add inputs
 	{ 
 		//this method will print the items in the shopping cart in alphabetical order

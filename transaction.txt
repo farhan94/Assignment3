@@ -1,3 +1,4 @@
 insert grocery apple 5 3 7 p
+print
 update apple 10
 print

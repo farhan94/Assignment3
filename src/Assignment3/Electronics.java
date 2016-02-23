@@ -20,17 +20,22 @@ public class Electronics extends Item {
 		if (fNf.toLowerCase().equals("f"))
 		{
 			this.fragile = fragClassification.FRAGILE;
+			this.calculatePremiumShipping();
 		}else if(fNf.toLowerCase().equals("nf"))
 		{
 			this.fragile = fragClassification.NONFRAGILE;
+			calculateRegularShipping();
 		}
 		if(Arrays.asList(taxStates).contains(state))
 		{
 			this.taxed = taxClassification.UNTAXED;
+			this.salesTax = 0;
 		} else
 		{
 			this.taxed = taxClassification.TAXED;
+			this.calculateSalesTax();
 		}
+		this.calculateTotalPrice();
 	}
 	
 	//String Constructor
@@ -38,41 +43,42 @@ public class Electronics extends Item {
 		super(name, pr, qu, we);
 		if (fNf.toLowerCase().equals("p")){
 			this.fragile = fragClassification.FRAGILE;
+			this.calculatePremiumShipping();
 		}
 		else if(fNf.toLowerCase().equals("np")){
 			this.fragile = fragClassification.NONFRAGILE;
+			calculateRegularShipping();
 		}
 		if(Arrays.asList(taxStates).contains(state))
 		{
 			this.taxed = taxClassification.UNTAXED;
+			this.salesTax = 0;
 		} else
 		{
 			this.taxed = taxClassification.TAXED;
+			this.calculateSalesTax();
 		}
+		this.calculateTotalPrice();
 	}
 
-	//override calculatePrice() if necessary; Implement print methods as necessary	
-	// Only re-implement stuff you cannot get from the superclass (Item)
-	public void calculateShipping()
+	public void calculatePrice() 
 	{
-		if (this.fragile == fragClassification.FRAGILE){
+		if (this.fragile.equals(fragClassification.FRAGILE))
+		{
 			this.calculatePremiumShipping();
 		}
-		else{
-			this.calculateRegularShipping();
+		else if(this.fragile.equals(fragClassification.NONFRAGILE))
+		{
+			calculateRegularShipping();
 		}
-	}
-	
-	public double calculatePrice() 
-	{
-		double finalPrice = 0;
-		if(this.taxed.equals(taxClassification.TAXED)){
-			finalPrice = (this.price * (1 + this.salesTax))* this.quantity + this.shippingPrice;
+		if(this.taxed.equals(taxClassification.UNTAXED))
+		{
+			this.salesTax = 0;
 		} else
 		{
-			finalPrice = this.price * this.quantity + this.shippingPrice;
+			this.calculateSalesTax();
 		}
-		return finalPrice;
+		this.calculateTotalPrice();
 	}
 	
 }

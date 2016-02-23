@@ -113,19 +113,18 @@ public class Item
 	}
 	
 	public static void delete(String name, ArrayList<Item> shoppingCart) {
-		
+		int del = 0;
 		Iterator<Item> i = shoppingCart.iterator();
 		while(i.hasNext())
 		{
 			Item a = i.next();
 			if(a.name.equals(name)){
-				shoppingCart.remove(a);
-				System.out.println(a.quantity+ " " + a.name + "s were deleted from the shopping cart.");
-				return;
+				del += a.quantity;
+				i.remove();
 			}
 		
 		}
-		System.err.println("This item does not exist in the shopping cart");
+		System.out.println("A " +del+ " quantity of " + name + " were deleted from the shopping cart.");
 		
 	}
 

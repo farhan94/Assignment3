@@ -123,7 +123,7 @@ public class A3Driver
 						  if((splitString[5].matches("\\d*")))
 						  {
 							  if(splitString[6].toLowerCase().equals("f") || splitString[6].toLowerCase().equals("nf")){
-								  if(Arrays.asList(states).contains(splitString[7])){
+								  if(Arrays.asList(states).contains(splitString[7].toUpperCase())){
 									  return false;
 								  }
 							  }
@@ -154,7 +154,7 @@ public class A3Driver
 		  }
 		  else if (splitString[0].toLowerCase().equals("delete"))
 		  {
-			  
+			  return false;
 		  }
 		  else if (splitString[0].toLowerCase().equals("update"))
 		  {

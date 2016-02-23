@@ -217,17 +217,20 @@ public class Item
 		//this method will print the items in the shopping cart in alphabetical order
 		double subTotal = 0;
 		double shippingCost = 0;
+		double cartTax = 0;
 		Collections.sort(shoppingCart, new CustomComparator());
 		for(int i = 0; i < shoppingCart.size(); i++)
 		{
 			shoppingCart.get(i).printItemAttributes();
 			subTotal += shoppingCart.get(i).getPrice();
 			shippingCost += shoppingCart.get(i).getShippingPrice();
+			cartTax += shoppingCart.get(i).getSalesTax();
 		}
-		System.out.println("Cart Subtotal: " + subTotal);
-		System.out.println("Cart Shipping Total: " + shippingCost);
-		double finalAmount = subTotal + shippingCost;
-		System.out.println("Cart Total: " + finalAmount);
+		System.out.println("Cart Subtotal: $" + subTotal);
+		System.out.println("Cart Shipping Total: $" + shippingCost);
+		System.out.println("Cart Tax Amount: $" + cartTax);
+		double finalAmount = subTotal + shippingCost + cartTax;
+		System.out.println("Cart Total: $" + finalAmount);
 	}
 
 }

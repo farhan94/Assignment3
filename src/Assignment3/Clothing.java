@@ -4,21 +4,24 @@ import java.util.ArrayList;
 
 public class Clothing extends Item {
 
-	//Bascic Constructor
+	//Basic Constructor
 	public Clothing(String name, double price, int quantity, int weight) {
 		super(name, price, quantity, weight);
+		this.calculateRegularShipping();
 	}
 	
 	//String Constructor
 	public Clothing(String name, String pr, String qu, String we) {
 		super(name, pr, qu, we);
+		this.calculateRegularShipping();
 	}
 
-
+	/*
 	public void calculateShipping()
 	{
 		this.calculateRegularShipping();
 	}
+	*/
 	
 	public double calculatePrice() 
 	{

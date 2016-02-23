@@ -1,23 +1,20 @@
 package Assignment3;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class Item 
 {
-//Declare variables for this class. Think about its type: public, protected or private?
+  //Declare variables for this class. Think about its type: public, protected or private?
 	String name;
 	double price;
 	double shippingPrice;
 	protected double salesTax = 0.1;
 	protected int quantity;
 	int weight;
-	
 	double totalPrice; //including either premium or regular shipping and tax if applicable
-	
-
-	
-// You will need a constructor (Why?). Create it here.
 	
 	public Item(String name, double price, int quantity, int weight){
 		this.name = name;
@@ -25,8 +22,6 @@ public class Item
 		this.quantity = quantity;
 		this.weight = weight;
 	}
-	
-	
 	
 	public Item(String name2, String pr, String qu, String we) {
 		double price = Double.parseDouble(pr);
@@ -41,73 +36,49 @@ public class Item
 		this.weight = (int) weight;
 	}
 
-
-
 	public String getName() {
 		return name;
 	}
-
-
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
-
-
 	public double getPrice() {
 		return price;
 	}
-
-
 
 	public void setPrice(double price) {
 		this.price = price;
 	}
 
-
-
 	public int getQuantity() {
 		return quantity;
 	}
-
-
 
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-
-
 	public int getWeight() {
 		return weight;
 	}
-
-
 
 	public void setWeight(int weight) {
 		this.weight = weight;
 	}
 
-
-
 	public double getShippingPrice() {
 		return shippingPrice;
 	}
-
-
 
 	public double getSalesTax() {
 		return salesTax;
 	}
 
-
-
 	public double getTotalPrice() {
 		return totalPrice;
 	}
-
-
 
 	public double calculatePrice () 
 	{
@@ -116,10 +87,14 @@ public class Item
 		return final_price;
 	}
 	
-
 	void printItemAttributes () 
 	{
 		//Print all applicable attributes of this class
+		System.out.println("Item name: " + getName());
+		System.out.println("Item quatitiy: " + getQuantity());
+		System.out.println("Item weight: " + getWeight());
+		System.out.println("Item price: " + getPrice());
+		System.out.println("Shipping Price: " + getShippingPrice());
 	}
 	
 	public void calculateRegularShipping(){ //use the technique in the assignment description to calculate the shipping price (variable)
@@ -161,8 +136,6 @@ public class Item
 		
 	}
 
-
-
 	public static boolean itemExists(String name, ArrayList<Item> shoppingCart) {
 		Iterator<Item> i = shoppingCart.iterator();
 		while(i.hasNext())
@@ -174,8 +147,6 @@ public class Item
 		}
 		return false;
 	}
-
-
 
 	public static void update(String name, String quant, ArrayList<Item> shoppingCart) {
 		int quantity = Integer.parseInt(quant);
@@ -236,6 +207,19 @@ public class Item
 	public static void print(ArrayList<Item> shoppingCart) //you may need to modify/add inputs
 	{ 
 		//this method will print the items in the shopping cart in alphabetical order
+		double subTotal = 0;
+		double shippingCost = 0;
+		Collections.sort(shoppingCart, new CustomComparator());
+		for(int i = 0; i < shoppingCart.size(); i++)
+		{
+			shoppingCart.get(i).printItemAttributes();
+			subTotal += shoppingCart.get(i).getPrice();
+			shippingCost += shoppingCart.get(i).getShippingPrice();
+		}
+		System.out.println("Cart Subtotal: " + subTotal);
+		System.out.println("Cart Shipping Total: " + shippingCost);
+		double finalAmount = subTotal + shippingCost;
+		System.out.println("Cart Total: " + finalAmount);
 	}
 
 }

@@ -9,16 +9,15 @@ public class Grocery extends Item {
 	enum classification {PERISH, NONPERISH};
 	private classification perishable;
 	
-
-	
-	
 	public Grocery(String name, double price, int quantity, int weight, String Pnp) {
 		super(name, price, quantity, weight);
 		if (Pnp.toLowerCase().equals("p")){
 			this.perishable = classification.PERISH;
+			this.calculatePremiumShipping();
 		}
 		else if(Pnp.toLowerCase().equals("np")){
 			this.perishable = classification.NONPERISH;
+			this.calculateRegularShipping();
 		}
 	}
 	
@@ -26,14 +25,16 @@ public class Grocery extends Item {
 		super(name, pr, qu, we);
 		if (Pnp.toLowerCase().equals("p")){
 			this.perishable = classification.PERISH;
+			this.calculatePremiumShipping();
 		}
 		else if(Pnp.toLowerCase().equals("np")){
 			this.perishable = classification.NONPERISH;
+			this.calculateRegularShipping();
 		}
 	}
 
-
-	//override calculatePrice() if necessary; Implement print methods as necessary	
+	/*
+	 * //override calculatePrice() if necessary; Implement print methods as necessary	
 	// Only re-implement stuff you cannot get from the superclass (Item)
 	public void calculateShipping()
 	{
@@ -44,6 +45,7 @@ public class Grocery extends Item {
 			this.shippingPrice = this.weight*20*this.quantity;
 		}
 	}
+	*/
 	
 	public double calculatePrice() 
 	{

@@ -14,7 +14,7 @@ public class Electronics extends Item {
 	
 	String[] taxStates = {"TX","NM","VA","AZ","AK"};
 	
-	//Bascic Constructor
+	//Basic Constructor
 	public Electronics(String name, double price, int quantity, int weight, String fNf, String state) {
 		super(name, price, quantity, weight);
 		if (fNf.toLowerCase().equals("f"))
@@ -50,7 +50,6 @@ public class Electronics extends Item {
 			this.taxed = taxClassification.TAXED;
 		}
 	}
-
 
 	//override calculatePrice() if necessary; Implement print methods as necessary	
 	// Only re-implement stuff you cannot get from the superclass (Item)

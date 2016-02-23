@@ -54,23 +54,10 @@ public class A3Driver
 			else if (splitString[0].toLowerCase().equals("update"))
 			{
 				Item.update(splitString[1], splitString[2], shoppingCart);
+			} else if (splitString[0].toLowerCase().equals("print"))
+			{
+				Item.print(shoppingCart);
 			}
-			
-		}
-		
-		//Stub for arraylist.
-		
-		
-		// General code example for how to iterate an array list. You will have to modify this heavily, to suit your needs.
-		Iterator<Item> i = shoppingCart.iterator();
-		while (i.hasNext()) 
-		{
-			Item temp = i.next();
-			temp.calculatePrice(); 
-			temp.printItemAttributes();
-			//This (above) works because of polymorphism: a determination is made at runtime, 
-			//based on the inherited class type, as to which method is to be invoked. Eg: If it is an instance
-			// of Grocery, it will invoke the calculatePrice () method defined in Grocery.
 		}		
 	  }
 	  
@@ -100,6 +87,7 @@ public class A3Driver
 				System.exit(-1);
 			}
 		}
+	  
 	  public static boolean checkErrors(ArrayList<String> input){
 		  //will add various error checks here
 		  return false; //false if no errors

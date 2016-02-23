@@ -30,8 +30,6 @@ public class Grocery extends Item {
 		else if(Pnp.toLowerCase().equals("np")){
 			this.perishable = classification.NONPERISH;
 		}
-		
-		
 	}
 
 
@@ -49,9 +47,9 @@ public class Grocery extends Item {
 	
 	public double calculatePrice() 
 	{
-		double final_price = 0;
-		final_price = this.price * this.quantity + this.shippingPrice;
-		return final_price;
+		double finalPrice = 0;
+		finalPrice = this.price * this.quantity + this.shippingPrice;
+		return finalPrice;
 	}
 	
 }

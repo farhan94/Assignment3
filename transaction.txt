@@ -1,3 +1,2 @@
-insert groceries cabbage 2.00 5 1 NP
+insert electronics cabbage 2.00 5 1 f NY
 print
-

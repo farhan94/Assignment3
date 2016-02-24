@@ -113,9 +113,9 @@ public class A3Driver
 					  return true;
 				  }
 				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
-					  if((splitString[4].matches("\\d*")))
+					  if((splitString[4].matches("\\d*\\.?\\d[0]*$") && !splitString[4].matches("\\d*\\.+")))
 					  {
-						  if((splitString[5].matches("\\d*\\.?\\d[0]*$")))
+						  if((splitString[5].matches("\\d*\\.?\\d[0]*$") && !splitString[5].matches("\\d*\\.+")))
 						  {
 							  if(splitString[6].toLowerCase().equals("np") || splitString[6].toLowerCase().equals("p")){
 								  return false;
@@ -130,9 +130,9 @@ public class A3Driver
 					  return true;
 				  }
 				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
-					  if((splitString[4].matches("\\d*")))
+					  if((splitString[4].matches("\\d*\\.?\\d[0]*$") && !splitString[4].matches("\\d*\\.+")))
 					  {
-						  if((splitString[5].matches("\\d*\\.?\\d[0]*$")))
+						  if((splitString[5].matches("\\d*\\.?\\d[0]*$") && !splitString[5].matches("\\d*\\.+")))
 						  {
 							  if(splitString[6].toLowerCase().equals("f") || splitString[6].toLowerCase().equals("nf")){
 								  if(Arrays.asList(states).contains(splitString[7].toUpperCase())){
@@ -150,9 +150,9 @@ public class A3Driver
 					  return true;
 				  }
 				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
-					  if((splitString[4].matches("\\d*")))
+					  if((splitString[4].matches("\\d*\\.?\\d[0]*$") && !splitString[4].matches("\\d*\\.+")))
 					  {
-						  if((splitString[5].matches("\\d*\\.?\\d[0]*$")))
+						  if((splitString[5].matches("\\d*\\.?\\d[0]*$") && !splitString[5].matches("\\d*\\.+")))
 						  {
 							  return false;
 						  }

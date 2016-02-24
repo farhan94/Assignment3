@@ -1,2 +1,2 @@
-insert electronics cabbage 2.00 5 1 f NY
+insert electronics cabbage 2.00 5.00 1 f NY
 print

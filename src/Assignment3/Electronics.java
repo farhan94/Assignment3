@@ -41,11 +41,11 @@ public class Electronics extends Item {
 	//String Constructor
 	public Electronics(String name, String pr, String qu, String we, String fNf, String state) {
 		super(name, pr, qu, we);
-		if (fNf.toLowerCase().equals("p")){
+		if (fNf.toLowerCase().equals("f")){
 			this.fragile = fragClassification.FRAGILE;
 			this.calculatePremiumShipping();
 		}
-		else if(fNf.toLowerCase().equals("np")){
+		else if(fNf.toLowerCase().equals("nf")){
 			this.fragile = fragClassification.NONFRAGILE;
 			calculateRegularShipping();
 		}

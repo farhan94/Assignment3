@@ -29,11 +29,11 @@ public class Item
 		int cast = (int) (price*100);
 		price = (double)cast/100;
 		
-		int quantity = Integer.parseInt(qu);
+		double quantity = Double.parseDouble(qu);
 		double weight = Double.parseDouble(we);
 		this.name = name2;
 		this.price = price;
-		this.quantity = quantity;
+		this.quantity = (int) quantity;
 		this.weight = (int) weight;
 	}
 
@@ -195,7 +195,8 @@ public class Item
 		System.out.println("Item name: " + getName());
 		System.out.println("Item quantity: " + getQuantity());
 		double pricePlusTax = getPrice() + getSalesTax();
-		System.out.println("Item price after tax: $" + String.format( "%.2f",pricePlusTax));
+		double priceTaxShipping = this.getPrice() + this.getSalesTax() + this.getShippingPrice();
+		System.out.println("Item price after tax and shipping: $" + String.format( "%.2f",priceTaxShipping));
 		System.out.println("Shipping Price: $" + String.format( "%.2f",getShippingPrice()));
 	}
 	

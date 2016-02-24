@@ -27,6 +27,7 @@ public class A3Driver
 		ArrayList<Item> shoppingCart = new ArrayList<Item>();
 		
 		while (s.hasNext()){
+			Collections.sort(shoppingCart, new CustomComparator());
 			String temp = s.next();
 			String[] splitString = temp.split(" ");
 			
@@ -103,7 +104,7 @@ public class A3Driver
 				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
 					  if((splitString[4].matches("\\d*")))
 					  {
-						  if((splitString[5].matches("\\d*")))
+						  if((splitString[5].matches("\\d*\\.?\\0*$")))
 						  {
 							  if(splitString[6].toLowerCase().equals("np") || splitString[6].toLowerCase().equals("p")){
 								  return false;
@@ -120,7 +121,7 @@ public class A3Driver
 				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
 					  if((splitString[4].matches("\\d*")))
 					  {
-						  if((splitString[5].matches("\\d*")))
+						  if((splitString[5].matches("\\d*\\.?\\0*$")))
 						  {
 							  if(splitString[6].toLowerCase().equals("f") || splitString[6].toLowerCase().equals("nf")){
 								  if(Arrays.asList(states).contains(splitString[7].toUpperCase())){
@@ -140,7 +141,7 @@ public class A3Driver
 				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
 					  if((splitString[4].matches("\\d*")))
 					  {
-						  if((splitString[5].matches("\\d*")))
+						  if((splitString[5].matches("\\d*\\.?[0]*$")))
 						  {
 							  return false;
 						  }

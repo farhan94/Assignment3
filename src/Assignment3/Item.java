@@ -26,7 +26,7 @@ public class Item
 	public Item(String name2, String pr, String qu, String we) {
 		double price = Double.parseDouble(pr);
 		int cast = (int) (price*100);
-		price = cast/100;
+		price = (double)cast/100;
 		
 		int quantity = Integer.parseInt(qu);
 		double weight = Double.parseDouble(we);
@@ -100,16 +100,22 @@ public class Item
 	
 	public static void search(String name, ArrayList<Item> shoppingCart)
 	{
+		int result = 0;
 		Iterator<Item> i = shoppingCart.iterator();
 		while(i.hasNext())
 		{
 			Item a = i.next();
 			if(a.name.equals(name)){
-				System.out.println("There is a quantity of " + a.quantity + " " + a.name +" in the shopping cart.");
-				return;
+				result += a.quantity;
 			}
 		}
-		System.err.println("This item does not exist in the shopping cart");
+		if (result == 0){
+			System.err.println("This item does not exist in the shopping cart");
+		}
+		else
+		{
+			System.out.println("There is a quantity of " + result + " " +name +" in the shopping cart.");
+		}
 	}
 	
 	public static void delete(String name, ArrayList<Item> shoppingCart) {
@@ -124,7 +130,7 @@ public class Item
 			}
 		
 		}
-		System.out.println("A " +del+ " quantity of " + name + " were deleted from the shopping cart.");
+		System.out.println("A quantity of " +del+" " + name + " was deleted from the shopping cart.");
 		
 	}
 
@@ -167,18 +173,18 @@ public class Item
 		if (s[1].toLowerCase().equals("groceries"))
 		{
 				shoppingCart.add(new Grocery(s[2], s[3], s[4], s[5], s[6]));
-				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
+				System.out.println("A quantity of " +s[4]+ " " +s[2]+ " was added to the shopping cart.");
 		}
 		else if (s[1].toLowerCase().equals("electronics"))
 		{
 				shoppingCart.add(new Electronics(s[2], s[3], s[4], s[5], s[6], s[7]));
-				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
+				System.out.println("A quantity of " +s[4]+ " " +s[2]+ " was added to the shopping cart.");
 		}
 		
 		else if (s[1].toLowerCase().equals("clothing"))
 		{
 				shoppingCart.add(new Clothing(s[2], s[3], s[4], s[5]));
-				System.out.println("A quantity of " +s[4]+ " " +s[2]+ "s were added to the shopping cart.");
+				System.out.println("A quantity of " +s[4]+ " " +s[2]+ " was added to the shopping cart.");
 		}
 		
 	}
@@ -187,7 +193,7 @@ public class Item
 	{
 		//Print all applicable attributes of this class
 		System.out.println("Item name: " + getName());
-		System.out.println("Item quatitiy: " + getQuantity());
+		System.out.println("Item quantity: " + getQuantity());
 		double pricePlusTax = getPrice() + getSalesTax();
 		System.out.println("Item price after tax: $" + pricePlusTax);
 		System.out.println("Shipping Price: $" + getShippingPrice());

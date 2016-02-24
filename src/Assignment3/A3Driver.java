@@ -1,3 +1,8 @@
+/*
+ *Farhan Ali FA7674
+ * Thomas Leahy
+ */
+
 package Assignment3;
 
 import java.io.BufferedReader;
@@ -14,48 +19,54 @@ public class A3Driver
 	  {
 		//Open file; file name specified in args (command line)
 		
-		if (args.length != 1) 
+		if (args.length != 1) //checking if any file name was passed through, if it wasn't print error and end
 		{
 			System.err.println ("Error: Incorrect number of command line arguments");
 			System.exit(-1);
 		}
 		
-		ArrayList<String> input = new ArrayList<String>();
-		processLinesInFile (args[0], input);
+		ArrayList<String> input = new ArrayList<String>();	//will store the transaction inputs, line by line
+		processLinesInFile (args[0], input); 				// putting the transaction inputs in input
 		
-		Iterator<String> s = input.iterator();
-		ArrayList<Item> shoppingCart = new ArrayList<Item>();
+		Iterator<String> s = input.iterator();		//iterating through input
+		ArrayList<Item> shoppingCart = new ArrayList<Item>();	// will store items (shopping cart)
 		
-		while (s.hasNext()){
-			Collections.sort(shoppingCart, new CustomComparator());
+		while (s.hasNext()){	
+			Collections.sort(shoppingCart, new CustomComparator()); //alphabetizing shopping cart
 			String temp = s.next();
-			String[] splitString = temp.split(" ");
+			String[] splitString = temp.split(" ");	//spliting an element of input by the spaces
 			
-			//maybe check for errors in the split string, instead of before splitting????
-			if (checkErrors(splitString))
+			if (checkErrors(splitString)) //checking for input errors
 			{
 				System.err.println("Invalid Input");
-				continue; //checkErrors will print whatever error there was in the input
+				continue; //checkErrors will print whatever error there was in the input and go to next element in iterator
 			}
 			
 			if (splitString[0].toLowerCase().equals("insert"))
 			{
+				//this will add the proper object to the shoppingCart.
 				Item.evaluateInput(splitString, shoppingCart);
 			}
 			else if (splitString[0].toLowerCase().equals("search"))
 			{
-				Item.search(splitString[1], shoppingCart);
+				//this will search for the item with the name specified in the splitString that is in the shoppingCart, and it will print the item’s info.
+				Item.search(splitString[1], shoppingCart); 
 			}
 			else if (splitString[0].toLowerCase().equals("delete"))
 			{
+				//this method will search for all items matching the name in splitString and delete all values
+				// with the  same name from the shopping cart
 				Item.delete(splitString[1], shoppingCart);
 			}
 			else if (splitString[0].toLowerCase().equals("update"))
 			{
+				//this will search for the first occurrence of the item with the name specified in splitString
+				//and it will change its quantity to the one specified in splitString
 				Item.update(splitString[1], splitString[2], shoppingCart);
 			} 
 			else if (splitString[0].toLowerCase().equals("print"))
 			{
+				//this will print information of items in shoppingCart and then print the final price
 				Item.print(shoppingCart);
 			}
 		}		

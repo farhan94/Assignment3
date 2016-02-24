@@ -4,4 +4,3 @@ insert clothing apple 12.01 2 2
 insert clothing console 12.01 2 2.00
 insert clothing Console 12.01 2 2
 insert clothing 2 12.01 2 2222
-print

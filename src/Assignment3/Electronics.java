@@ -1,7 +1,7 @@
 
 package Assignment3;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Electronics extends Item {

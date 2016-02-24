@@ -1,5 +1,6 @@
 package Assignment3;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -85,7 +86,6 @@ public class Item
 		totalPrice = price + shippingPrice + salesTax;
 	}
 
-	
 	public void calculateRegularShipping(){ //use the technique in the assignment description to calculate the shipping price (variable)
 		this.shippingPrice = this.weight*20*this.quantity;
 	}
@@ -95,7 +95,7 @@ public class Item
 	}
 
 	public void calculateSalesTax(){
-		
+		this.salesTax = .1*getPrice();
 	}
 	
 	public static void search(String name, ArrayList<Item> shoppingCart)
@@ -195,8 +195,8 @@ public class Item
 		System.out.println("Item name: " + getName());
 		System.out.println("Item quantity: " + getQuantity());
 		double pricePlusTax = getPrice() + getSalesTax();
-		System.out.println("Item price after tax: $" + pricePlusTax);
-		System.out.println("Shipping Price: $" + getShippingPrice());
+		System.out.println("Item price after tax: $" + String.format( "%.2f",pricePlusTax));
+		System.out.println("Shipping Price: $" + String.format( "%.2f",getShippingPrice()));
 	}
 	
 	public static void print(ArrayList<Item> shoppingCart) //you may need to modify/add inputs
@@ -213,11 +213,10 @@ public class Item
 			shippingCost += shoppingCart.get(i).getShippingPrice();
 			cartTax += shoppingCart.get(i).getSalesTax();
 		}
-		System.out.println("Cart Subtotal: $" + subTotal);
-		System.out.println("Cart Shipping Total: $" + shippingCost);
-		System.out.println("Cart Tax Amount: $" + cartTax);
+		System.out.println("Cart Subtotal: $" + String.format( "%.2f",subTotal));
+		System.out.println("Cart Shipping Total: $" + String.format( "%.2f",shippingCost));
+		System.out.println("Cart Tax Amount: $" + String.format( "%.2f",cartTax));
 		double finalAmount = subTotal + shippingCost + cartTax;
-		System.out.println("Cart Total: $" + finalAmount);
+		System.out.println("Cart Total: $" + String.format( "%.2f",finalAmount));
 	}
-
 }

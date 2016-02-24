@@ -2,7 +2,8 @@ package Assignment3;
 
 import java.util.ArrayList;
 
-public class Grocery extends Item {
+public class Grocery extends Item 
+{
 	//variables, constructor here
 	
 	enum classification {PERISH, NONPERISH};
@@ -10,11 +11,14 @@ public class Grocery extends Item {
 	
 	public Grocery(String name, double price, int quantity, int weight, String Pnp) {
 		super(name, price, quantity, weight);
-		if (Pnp.toLowerCase().equals("p")){
+		this.calculateItemSubTotal();
+		if (Pnp.toLowerCase().equals("p"))
+		{
 			this.perishable = classification.PERISH;
 			this.calculatePremiumShipping();
 		}
-		else if(Pnp.toLowerCase().equals("np")){
+		else if(Pnp.toLowerCase().equals("np"))
+		{
 			this.perishable = classification.NONPERISH;
 			this.calculateRegularShipping();
 		}
@@ -24,11 +28,14 @@ public class Grocery extends Item {
 	
 	public Grocery(String name, String pr, String qu, String we, String Pnp) {
 		super(name, pr, qu, we);
-		if (Pnp.toLowerCase().equals("p")){
+		this.calculateItemSubTotal();
+		if (Pnp.toLowerCase().equals("p"))
+		{
 			this.perishable = classification.PERISH;
 			this.calculatePremiumShipping();
 		}
-		else if(Pnp.toLowerCase().equals("np")){
+		else if(Pnp.toLowerCase().equals("np"))
+		{
 			this.perishable = classification.NONPERISH;
 			this.calculateRegularShipping();
 		}
@@ -38,6 +45,7 @@ public class Grocery extends Item {
 
 	public void calculatePrice() 
 	{
+		this.calculateItemSubTotal();
 		if (this.perishable.equals(classification.PERISH))
 		{
 			this.calculatePremiumShipping();

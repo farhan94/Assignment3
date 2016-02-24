@@ -4,7 +4,8 @@ package Assignment3;
 //import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Electronics extends Item {
+public class Electronics extends Item 
+{
 	
 	enum fragClassification {FRAGILE, NONFRAGILE};
 	private fragClassification fragile;
@@ -15,8 +16,10 @@ public class Electronics extends Item {
 	String[] taxStates = {"TX","NM","VA","AZ","AK"};
 	
 	//Basic Constructor
-	public Electronics(String name, double price, int quantity, int weight, String fNf, String state) {
+	public Electronics(String name, double price, int quantity, int weight, String fNf, String state) 
+	{
 		super(name, price, quantity, weight);
+		this.calculateItemSubTotal();
 		if (fNf.toLowerCase().equals("f"))
 		{
 			this.fragile = fragClassification.FRAGILE;
@@ -39,8 +42,10 @@ public class Electronics extends Item {
 	}
 	
 	//String Constructor
-	public Electronics(String name, String pr, String qu, String we, String fNf, String state) {
+	public Electronics(String name, String pr, String qu, String we, String fNf, String state)
+	{
 		super(name, pr, qu, we);
+		this.calculateItemSubTotal();
 		if (fNf.toLowerCase().equals("f")){
 			this.fragile = fragClassification.FRAGILE;
 			this.calculatePremiumShipping();
@@ -63,6 +68,7 @@ public class Electronics extends Item {
 
 	public void calculatePrice() 
 	{
+		this.calculateItemSubTotal();
 		if (this.fragile.equals(fragClassification.FRAGILE))
 		{
 			this.calculatePremiumShipping();

@@ -31,7 +31,8 @@ public class A3Driver
 		Iterator<String> s = input.iterator();		//iterating through input
 		ArrayList<Item> shoppingCart = new ArrayList<Item>();	// will store items (shopping cart)
 		
-		while (s.hasNext()){	
+		while (s.hasNext())
+		{	
 			Collections.sort(shoppingCart, new CustomComparator()); //alphabetizing shopping cart
 			String temp = s.next();
 			String[] splitString = temp.split(" ");	//spliting an element of input by the spaces
@@ -112,30 +113,36 @@ public class A3Driver
 				  {
 					  return true;
 				  }
-				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
+				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals("."))
+				  {
 					  if((splitString[4].matches("\\d*\\.?\\d[0]*$") && !splitString[4].matches("\\d*\\.+")))
 					  {
 						  if((splitString[5].matches("\\d*\\.?\\d[0]*$") && !splitString[5].matches("\\d*\\.+")))
 						  {
-							  if(splitString[6].toLowerCase().equals("np") || splitString[6].toLowerCase().equals("p")){
+							  if(splitString[6].toLowerCase().equals("np") || splitString[6].toLowerCase().equals("p"))
+							  {
 								  return false;
 							  }
 						  }
 					  }
 				  }
 			  }
-			  else if(splitString[1].toLowerCase().equals("electronics")){
+			  else if(splitString[1].toLowerCase().equals("electronics"))
+			  {
 				  if(splitString.length < 8 || splitString.length > 8) //i am guessing that more than standard amount of inputs is wrong
 				  {
 					  return true;
 				  }
-				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
+				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals("."))
+				  {
 					  if((splitString[4].matches("\\d*\\.?\\d[0]*$") && !splitString[4].matches("\\d*\\.+")))
 					  {
 						  if((splitString[5].matches("\\d*\\.?\\d[0]*$") && !splitString[5].matches("\\d*\\.+")))
 						  {
-							  if(splitString[6].toLowerCase().equals("f") || splitString[6].toLowerCase().equals("nf")){
-								  if(Arrays.asList(states).contains(splitString[7].toUpperCase())){
+							  if(splitString[6].toLowerCase().equals("f") || splitString[6].toLowerCase().equals("nf"))
+							  {
+								  if(Arrays.asList(states).contains(splitString[7].toUpperCase()))
+								  {
 									  return false;
 								  }
 							  }
@@ -144,12 +151,14 @@ public class A3Driver
 				  }
 				  
 			  }
-			  else if(splitString[1].toLowerCase().equals("clothing")){
+			  else if(splitString[1].toLowerCase().equals("clothing"))
+			  {
 				  if(splitString.length < 6 || splitString.length > 6) //i am guessing that more than standard amount of inputs is wrong
 				  {
 					  return true;
 				  }
-				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals(".")){
+				  else if((splitString[3].matches("\\d*\\.?\\d{0,2}$") || splitString[3].matches("\\d+\\.?$")) && !splitString[3].equals("."))
+				  {
 					  if((splitString[4].matches("\\d*\\.?\\d[0]*$") && !splitString[4].matches("\\d*\\.+")))
 					  {
 						  if((splitString[5].matches("\\d*\\.?\\d[0]*$") && !splitString[5].matches("\\d*\\.+")))

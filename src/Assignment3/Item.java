@@ -142,13 +142,8 @@ public class Item
 		result += a.quantity;
 	    }
 	}
-	if (result == 0) 
-	{
-	    System.err.println("This item does not exist in the shopping cart");
-	} else 
-	{
-	    System.out.println("There is a quantity of " + result + " " + name + " in the shopping cart.");
-	}
+	System.out.println("There is a quantity of " + result + " " + name + " in the shopping cart.");
+	System.out.println("");
     }
 
     public static void delete(String name, ArrayList<Item> shoppingCart)
@@ -166,7 +161,7 @@ public class Item
 
 	}
 	System.out.println("A quantity of " + del + " " + name + " was deleted from the shopping cart.");
-
+	System.out.println("");
     }
 
     public static boolean itemExists(String name, ArrayList<Item> shoppingCart) 
@@ -204,10 +199,13 @@ public class Item
 		a.calculatePrice();
 		shoppingCart.set(ind, a);
 		System.out.println(a.name + ": " + a.quantity);
+		System.out.println("");
 		return;
 	    }
 
 	}
+		System.out.println("Cannot update, since " +name+ " is not in the shopping cart.");
+		System.out.println("");
     }
 
     public static void evaluateInput(String[] s, ArrayList<Item> shoppingCart) 
@@ -235,6 +233,7 @@ public class Item
 	System.out.println("Item quantity: " + getQuantity());
 	double priceTaxShipping = this.itemSubTotal + this.getSalesTax() + this.getShippingPrice();
 	System.out.println("Item price after tax and shipping: $" + String.format("%.2f", priceTaxShipping));
+	System.out.println("");
     }
 
     public static void print(ArrayList<Item> shoppingCart) 
@@ -249,5 +248,6 @@ public class Item
 	    cartTotal += shoppingCart.get(i).totalPrice;
 	}
 	System.out.println("Total Charges for this cart: $" + String.format("%.2f", cartTotal));
+	System.out.println("");
     }
 }

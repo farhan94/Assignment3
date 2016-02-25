@@ -7,13 +7,13 @@ import java.util.Arrays;
 public class Electronics extends Item 
 {
 	
-	enum fragClassification {FRAGILE, NONFRAGILE};
-	private fragClassification fragile;
+	enum fragClassification {FRAGILE, NONFRAGILE};	//will be used to see if the object is fragile or not
+	private fragClassification fragile;				// it comes in use for shipping calculations
 	
-	enum taxClassification {TAXED, UNTAXED};
+	enum taxClassification {TAXED, UNTAXED};		// depending on the state, it will be taxed or untaxed
 	private taxClassification taxed;
 	
-	String[] taxStates = {"TX","NM","VA","AZ","AK"};
+	String[] taxStates = {"TX","NM","VA","AZ","AK"};	//these states are not taxed
 	
 	//Basic Constructor
 	public Electronics(String name, double price, int quantity, int weight, String fNf, String state) 
@@ -65,7 +65,7 @@ public class Electronics extends Item
 		}
 		this.calculateTotalPrice();
 	}
-
+	//this method calculates priced based on attributes of the object
 	public void calculatePrice() 
 	{
 		this.calculateItemSubTotal();

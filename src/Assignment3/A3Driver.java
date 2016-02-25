@@ -22,6 +22,7 @@ public class A3Driver
 		if (args.length != 1) //checking if any file name was passed through, if it wasn't print error and end
 		{
 			System.err.println ("Error: Incorrect number of command line arguments");
+			
 			System.exit(-1);
 		}
 		
@@ -39,7 +40,8 @@ public class A3Driver
 			
 			if (checkErrors(splitString)) //checking for input errors
 			{
-				System.err.println("Invalid Input");
+				System.out.println("Invalid Input");
+				System.out.println ("");
 				continue; //checkErrors will print whatever error there was in the input and go to next element in iterator
 			}
 			

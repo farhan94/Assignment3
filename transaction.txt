@@ -1,6 +1,8 @@
 delete a
+asdfasdf
 update a 5
 search a
+insert clothing 1 1 1 1
 insert electronics PlayStation 2.00 5.00 1 f NY
 insert electronics playstation 2.00 5.00 1 f NY
 insert electronics PLAYSTATION 2.00 5.00 1 f NY

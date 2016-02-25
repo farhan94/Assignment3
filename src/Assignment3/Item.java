@@ -8,8 +8,7 @@ import java.util.Iterator;
 
 public class Item 
 {
-    // Declare variables for this class. Think about its type: public, protected
-    // or private?
+    //These variables are for the attributes of the items (the variable names are descriptive)
     String name;
     double unitPrice;
     int quantity;
@@ -17,9 +16,8 @@ public class Item
     double shippingPrice;
     double salesTax;
     int weight;
-    double totalPrice; // including either premium or regular shipping and tax
-		       // if applicable
-
+    double totalPrice; 
+    //Basic constructor
     public Item(String name, double price, int quantity, int weight) 
     {
 	this.name = name;
@@ -27,7 +25,7 @@ public class Item
 	this.quantity = quantity;
 	this.weight = weight;
     }
-
+    //string constructor
     public Item(String name2, String pr, String qu, String we) 
     {
 	double price = Double.parseDouble(pr);
@@ -41,7 +39,7 @@ public class Item
 	this.quantity = (int) quantity;
 	this.weight = (int) weight;
     }
-
+    //various getters and setters
     public String getName() 
     {
 	return name;
@@ -101,7 +99,7 @@ public class Item
     {
 	return totalPrice;
     }
-
+    //calculate total price from the item prices, shipping prices, and tax values
     public void calculateTotalPrice() 
     {
 	totalPrice = itemSubTotal + shippingPrice + salesTax;
@@ -120,16 +118,16 @@ public class Item
     { 
 	// use the technique in the 
 	// assignment description to
-	// calculate the shipping price
+	// calculate the premium shipping price
 	// (variable)
 	this.shippingPrice = this.weight * 20 * this.quantity * 1.2;
     }
-
+    //this method calculates sales tax
     public void calculateSalesTax() 
     {
 	this.salesTax = .1 * itemSubTotal;
     }
-
+    //searches for an item in the shopping cart and prints out its quantity
     public static void search(String name, ArrayList<Item> shoppingCart) 
     {
 	int result = 0;
@@ -145,7 +143,7 @@ public class Item
 	System.out.println("There is a quantity of " + result + " " + name + " in the shopping cart.");
 	System.out.println("");
     }
-
+    //searches for an item in the shopping Cart and deletes all instances of items with the same name
     public static void delete(String name, ArrayList<Item> shoppingCart)
     {
 	int del = 0;
@@ -163,7 +161,7 @@ public class Item
 	System.out.println("A quantity of " + del + " " + name + " was deleted from the shopping cart.");
 	System.out.println("");
     }
-
+    //this helper function checks if an item exists in the shopping cart and returns true or false
     public static boolean itemExists(String name, ArrayList<Item> shoppingCart) 
     {
 	Iterator<Item> i = shoppingCart.iterator();
@@ -183,7 +181,7 @@ public class Item
 	// Polymorphic Function will call calculate Price of the three class
 	// functions
     }
-
+    //searches for the first occurrence of an item in the shopping cart and updates its value
     public static void update(String name, String quant, ArrayList<Item> shoppingCart)
     {
 	int quantity = Integer.parseInt(quant);
@@ -207,7 +205,7 @@ public class Item
 		System.out.println("Cannot update, since " +name+ " is not in the shopping cart.");
 		System.out.println("");
     }
-
+    //checks which subclass item to create and add to the shopping cart
     public static void evaluateInput(String[] s, ArrayList<Item> shoppingCart) 
     {
 	if (s[1].toLowerCase().equals("groceries")) 
@@ -225,7 +223,7 @@ public class Item
 	}
 
     }
-
+    //prints the attributes of an item
     void printItemAttributes() 
     {
 	// Print all applicable attributes of this class
@@ -235,7 +233,7 @@ public class Item
 	System.out.println("Item price after tax and shipping: $" + String.format("%.2f", priceTaxShipping));
 	System.out.println("");
     }
-
+    //prints the attributes of each item and then prints the total price of everything in the shopping cart
     public static void print(ArrayList<Item> shoppingCart) 
     {
 	// this method will print the items in the shopping cart in alphabetical

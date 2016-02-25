@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Clothing extends Item
 {
 
-	//Basic Constructor
+	//standard constructors initializing values 
 	public Clothing(String name, double price, int quantity, int weight) 
 	{
 		super(name, price, quantity, weight);
@@ -15,7 +15,7 @@ public class Clothing extends Item
 		this.calculateTotalPrice();
 	}
 	
-	//String Constructor
+	//standard constructors initializing values from strings
 	public Clothing(String name, String pr, String qu, String we) 
 	{
 		super(name, pr, qu, we);
@@ -24,7 +24,7 @@ public class Clothing extends Item
 		this.calculateSalesTax();
 		this.calculateTotalPrice();
 	}
-	
+	// calculates the price using the attributes of the object
 	public void calculatePrice() 
 	{
 		this.calculateItemSubTotal();

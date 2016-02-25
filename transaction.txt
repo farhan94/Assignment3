@@ -8,5 +8,4 @@ insert clothing pants 7.9 5 1
 insert clothing shirt 7.59 5 1 
 search shirt
 update shirt 10
-delete PLAYSTATION
 print

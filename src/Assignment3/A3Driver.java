@@ -1,6 +1,8 @@
 /*
+ * Assignment 3
+ * Section: TH: 2:00
  *Farhan Ali FA7674
- * Thomas Leahy
+ * Thomas Leahy TPL335
  */
 
 package Assignment3;
